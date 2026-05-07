@@ -512,44 +512,8 @@ VITE_API_URL=http://localhost:5000/api   # Backend API base URL
 
 ---
 
-## 15. Deployment Guide
 
-### Frontend → Vercel
-1. Push your repo to GitHub
-2. Go to [vercel.com](https://vercel.com) → **New Project** → import repo
-3. Set **Root Directory** to `client`
-4. Add Environment Variable: `VITE_API_URL=https://your-backend.onrender.com/api`
-5. Deploy
-
-### Backend → Render
-1. Go to [render.com](https://render.com) → **New Web Service** → connect repo
-2. Set **Root Directory** to `server`
-3. **Build Command**: `npm install`
-4. **Start Command**: `npm start`
-5. Add Environment Variables: `PORT`, `MONGO_URI`, `JWT_SECRET`
-6. Deploy
-
-### Database → MongoDB Atlas
-- Already configured in Step 4 above
-- Make sure **Network Access** includes `0.0.0.0/0` for Render's dynamic IPs
-
----
-
-## 16. Future Improvements
-
-- ♻️ **Scheduled scraping** — Use `node-cron` to auto-scrape every 30 minutes
-- 🔍 **Search & filter** — Filter stories by title, author, or minimum points
-- 📊 **Analytics dashboard** — Track most bookmarked stories
-- 🔄 **Refresh token** — Implement refresh token rotation for longer sessions
-- 📱 **PWA support** — Make the app installable on mobile devices
-- 🧪 **Testing** — Add Jest + Supertest for backend, React Testing Library for frontend
-- 🗂️ **Story categories** — Tag stories by topic (AI, Web, Security, etc.)
-- 🔔 **Email notifications** — Notify users when bookmarked stories hit a new points milestone
-- 🌐 **Multiple sources** — Add support for scraping Reddit r/programming, Lobsters, etc.
-
----
-
-## 17. Author
+## 15. Author
 
 Built as a MERN stack assignment demonstrating full-stack development skills:
 - REST API design with Express.js
@@ -557,6 +521,8 @@ Built as a MERN stack assignment demonstrating full-stack development skills:
 - Web scraping with Cheerio
 - React frontend with Context API
 - MongoDB data modeling with Mongoose
+
+-- Vanshika
 
 ---
 
