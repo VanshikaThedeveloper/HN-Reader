@@ -1,7 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 
-
+const authRoutes = require("./routes/authRoutes");
+const storyRoutes = require("./routes/storyRoutes");
 
 const app = express();
 
@@ -35,7 +36,19 @@ app.use(
 // ─── Body Parser ───────────────────────────────────────────────────────────────
 app.use(express.json());
 
+// ─── Routes ────────────────────────────────────────────────────────────────────
+app.use("/api/auth", authRoutes);
+app.use("/api/stories", storyRoutes);
 
+// Manual scrape endpoint at /api/scrape (delegates to story controller)
+const { triggerScrape } = require("./controllers/storyController");
+app.post("/api/scrape", async (req, res) => {
+  try {
+    await triggerScrape(req, res);
+  } catch (error) {
+    res.status(500).json({ message: "Scrape failed", error: error.message });
+  }
+});
 
 // ─── 404 Handler ──────────────────────────────────────────────────────────────
 app.use((req, res) => {
